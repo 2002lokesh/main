@@ -45,4 +45,4 @@ async def chatbot(item: Item):
 # Run the FastAPI server
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)  # Change host to "0.0.0.0" for Azure deployment
+    uvicorn.run(app, host="127.0.0.1", port=8000)
