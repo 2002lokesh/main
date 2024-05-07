@@ -33,7 +33,7 @@ class Item(BaseModel):
     message: str
 
 # Define FastAPI endpoint for POST method
-@app.post("/chatbot/")
+@app.post("/chatbot/", methods=["POST"])  # Explicitly allow POST method
 async def chatbot(item: Item):
     user_input = item.message
     intent = get_most_similar_intent(user_input, vectorizer, X, labels)
