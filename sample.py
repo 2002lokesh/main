@@ -33,7 +33,7 @@ class Item(BaseModel):
     message: str
 
 # Define FastAPI endpoint for POST method
-@app.post("/chatbot/", methods=["POST"])  # Explicitly allow POST method
+@app.post("/chatbot/")
 async def chatbot(item: Item):
     user_input = item.message
     intent = get_most_similar_intent(user_input, vectorizer, X, labels)
@@ -45,4 +45,4 @@ async def chatbot(item: Item):
 # Run the FastAPI server
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)  # Change host to "0.0.0.0" for Azure deployment
